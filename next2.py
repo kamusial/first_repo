@@ -1,2 +1,1 @@
 print("Kamil")
-print('Kamil')
