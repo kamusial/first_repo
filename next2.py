@@ -1,3 +1,3 @@
 print("Kamil2")
-print("Maciej ponownie")
+print("Anna tym razem")
 
