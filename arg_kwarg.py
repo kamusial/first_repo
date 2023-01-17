@@ -16,4 +16,6 @@ def welcome(**kwargs):
         print('Hello ',kwargs['imie'])
 
 welcome(imie='Kamil', nazwisko='Musial', wiek=34)
-#sdgf
+#sdgfsadfasdfsadf
+asdfasdfasdf
+asdfasdfasdf
