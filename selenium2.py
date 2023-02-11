@@ -2,8 +2,11 @@ from selenium import webdriver
 import time
 import datetime
 
-teraz = datetime.datetime.now()
-screenshot = 'screenshot' + teraz.strftime('_%H%M%S') + '.png'
+def make_screenshot(the_driver):
+    teraz = datetime.datetime.now()
+    screenshot = 'screenshot' + teraz.strftime('_%H%M%S') + '.png'
+    the_driver.get_screenshot_as_file(screenshot)
+
 driver = webdriver.Chrome()
 driver.get('http://www.saucedemo.com/')
 print('Nazwa strony ',driver.title)
@@ -12,7 +15,7 @@ try:
     pole_user.clear()
     pole_user.send_keys('standard_user')
 except:
-    driver.get_screenshot_as_file(screenshot)
+    make_screenshot(driver)
 pole_haslo = driver.find_element('xpath','//*[@id="password"]')
 pole_haslo.clear()
 pole_haslo.send_keys('secret_sauce')
@@ -21,5 +24,5 @@ print(przycisk_login.get_attribute('enabled'))
 if przycisk_login.get_attribute('disabled'):
     przycisk_login.click()
 time.sleep(2)
-driver.get_screenshot_as_file(screenshot)
+make_screenshot(driver)
 driver.quit()
