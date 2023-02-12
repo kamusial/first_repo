@@ -1,5 +1,6 @@
 #import functions
 from functions import *
+import pytest
 
 #print(functions.multiply(5, 6))
 #print(multiply(5, 6))
@@ -16,6 +17,11 @@ from functions import *
 #     assert no_of_letter('mama') == 4
 #     assert no_of_letter('mama.tata') == 8
 #     #nie odpowiedzieliśmy na ten warunek)
+
+@pytest.mark.parametrize('number, result', [(1, 1), (3, 'fiss')])
+
+def test_fissbuzz_param(number, result):
+    assert fissbuzz(number) == result
 
 def test_fissbuzz_basic():
     assert fissbuzz(1) == 1
